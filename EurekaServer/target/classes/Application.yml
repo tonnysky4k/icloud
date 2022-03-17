@@ -1,0 +1,17 @@
+server:
+  port: 8260
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+spring:
+  security:
+    basic:
+      enabled: false
+    user:
+      name: tonny
+      password: 1000
