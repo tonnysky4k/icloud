@@ -7,10 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Consumer" />
-        <module name="ZuulService" />
-        <module name="EurekaClient" />
-        <module name="EurekaServer" />
+        <module name="config-server" />
         <module name="UserService" />
+        <module name="EurekaServer" />
+        <module name="EurekaClient" />
+        <module name="ZuulService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,6 +25,7 @@
       <module name="EurekaServer" options="-parameters" />
       <module name="UserService" options="-parameters" />
       <module name="ZuulService" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="icloud" options="" />
       <module name="parent" options="-parameters" />
     </option>
