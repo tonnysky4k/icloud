@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,6 @@ public class ProductController {
   @RequestMapping(method = RequestMethod.GET)
   List<Product> getList()
   {
-
       return buildProduc();
   }
 

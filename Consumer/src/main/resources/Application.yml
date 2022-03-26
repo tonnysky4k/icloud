@@ -1,8 +1,4 @@
-logging:
-  level:
-    org:
-      springframework:
-        web: DEBUG
+
 eureka:
   client:
     service-url:
@@ -10,3 +6,15 @@ eureka:
 spring:
   mvc:
     log-request-details: true
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: yintao
+          content-type: application/json
+          group: mallWebGroup
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 9092
+          zkNodes: localhost

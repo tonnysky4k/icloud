@@ -1,5 +1,6 @@
 package com.consumer;
 
+import com.consumer.service.ProductMsgListener;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,14 +10,18 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.client.RestTemplate;
 
-@EnableHystrixDashboard
-@EnableCircuitBreaker
-@EnableFeignClients(basePackages = "com.consumer.service")
+//@EnableHystrixDashboard
+//@EnableCircuitBreaker
+//@EnableFeignClients(basePackages = "com.consumer.service")
 @EnableDiscoveryClient
+@EnableBinding(Sink.class)
 @SpringBootApplication
 public class ConsumerApplication {
 
@@ -35,6 +40,8 @@ public class ConsumerApplication {
     {
         SpringApplication.run(ConsumerApplication.class,args);
     }
+
+
 
     @Bean
     public ServletRegistrationBean getServlet() {
