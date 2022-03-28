@@ -25,4 +25,6 @@ public class ProductEndpoint {
             productService.save(product);
         return product;
     }
+
+
 }

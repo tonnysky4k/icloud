@@ -18,3 +18,5 @@ spring:
           brokers: localhost
           defaultBrokerPort: 9092
           zkNodes: localhost
+    bus:
+        id: 101

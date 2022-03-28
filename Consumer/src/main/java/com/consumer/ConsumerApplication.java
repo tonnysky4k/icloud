@@ -5,6 +5,7 @@ import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServl
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cloud.bus.jackson.RemoteApplicationEventScan;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -22,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 //@EnableFeignClients(basePackages = "com.consumer.service")
 @EnableDiscoveryClient
 @EnableBinding(Sink.class)
+//@RemoteApplicationEventScan
 @SpringBootApplication
 public class ConsumerApplication {
 

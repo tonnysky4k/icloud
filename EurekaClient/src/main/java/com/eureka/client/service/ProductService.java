@@ -15,8 +15,8 @@ import java.util.List;
 public class ProductService {
 
     Logger logger = LoggerFactory.getLogger(ProductService.class);
-    @Autowired
-    private Source source;
+   @Autowired
+   private Source source;
     private List<Product> productList;
 
     @Autowired
@@ -38,6 +38,7 @@ public class ProductService {
                 return pro;
             return null;
     }
+
     public Product save(Product product)
     {
         for(Product pro:productList) {
@@ -58,7 +59,37 @@ public class ProductService {
         ProductMsg productMsg = new ProductMsg(msAction,itemCode);
         source.output().send(MessageBuilder.withPayload(productMsg).build());
     }
+/*
 
+    @Autowired
+    public ProductService() {
+        this.productList = this.buildProducts();
+    }
+
+    public Product save(Product product) {
+        // TODO: 实现商品保存处理
+        for (Product sourceProduct : this.productList) {
+            if (sourceProduct.getId().equalsIgnoreCase(product.getId())) {
+                sourceProduct.setName(sourceProduct.getName() + "-new");
+                sourceProduct.setNum(sourceProduct.getNum() + 100);
+                product = sourceProduct;
+                break;
+            }
+        }
+
+        fireEvent(ProductEvent.ET_UPDATE, product);
+        return product;
+    }
+
+    protected void fireEvent(String eventAction, Product product) {
+        ProductEvent productEvent = new ProductEvent(product,
+                ApplicationContextHolder.getApplicationContext().getId(), "*:**",
+                eventAction, product.getId());
+        System.out.println("productEvent="+productEvent);
+        RemoteApplicationEventPublisher.publishEvent(productEvent);
+    }
+
+ */
     protected List<Product> buildProducts()
     {
         List<Product> al = new ArrayList<>();
